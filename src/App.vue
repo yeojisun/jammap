@@ -35,8 +35,10 @@ setup(){
 }
 
 const datas = [{
-  id:'종로',lat: 37.51347,
-  lng: 127.041722,imageName:'marker-icon'
+  id:'종로',
+  lat: 37.51347,
+  lng: 127.041722,
+  imageName:'marker-icon'
 }] // 마커를 그릴 데이터
 return {mapOptions, datas,}
 }
