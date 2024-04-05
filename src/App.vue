@@ -1,18 +1,20 @@
 <template>
-  <naver-map style="width: 100%; height: 800px" :map-options="mapOptions">
+  <naver-map style="width: 100%; height: 800px" :map-options="mapOptions" @onLoad="onLoadMap($event)">
     <naver-marker
       v-for="data in datas"
       :key="data.id"
       :latitude="data.lat"
       :longitude="data.lng"
+      @onLoad="onLoadMarker($event)"
     >
       <div class="marker">
         <img
           :src="require(`@/assets/marker/${data.imageName}.png`)"
-          width="90px"
-          height="106px"
+          width="20px"
+          height="25px"
         />
-      </div> </naver-marker
+      </div> 
+      </naver-marker
     ><naver-polyline :path="datas" />
   </naver-map>
 </template>
@@ -35,6 +37,23 @@ export default {
       longitude: 127.041722, // 지도 중앙 경도
       zoom: 13,
     };
+
+    const onLoadMarker=(marker)=>{
+  marker._icon.anchor = new naver.maps.Point(10, 10);
+  marker.draw();
+  console.log(marker);
+  console.log(marker._icon.anchor);
+  //marker.setAnchor(new naver.maps.Point(0, 0)
+//); // Change Map Center
+
+    }
+    const onLoadMap=(map)=>{
+  
+  console.log(map);
+  //marker.setAnchor(new naver.maps.Point(0, 0)
+//); // Change Map Center
+
+    }
 
     const datas = [
       {
@@ -71,7 +90,7 @@ export default {
         imageName: "marker-icon",
       },
     ]; // 마커를 그릴 데이터
-    return { mapOptions, datas };
+    return { mapOptions, datas,onLoadMarker,onLoadMap };
   },
 };
 </script>
