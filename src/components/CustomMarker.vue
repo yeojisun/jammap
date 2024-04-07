@@ -1,4 +1,4 @@
-
+<!-- 
 <template><naver-marker>
   <div class="marker">
     <img :src="clinic.imageUrl">
@@ -68,4 +68,4 @@ return {props,marker}
   />
 </template>
 
-<style scoped></style>
+<style scoped></style> -->

@@ -1,28 +1,51 @@
 <template>
-  <naver-map style="width: 100%; height: 800px" :map-options="mapOptions" @onLoad="onLoadMap($event)">
+  <div class="text-center">
+    <v-bottom-sheet v-model="sheet">
+      <v-card height="200">
+        <v-card-text>
+          <v-btn variant="text" @click="sheet = !sheet"> X </v-btn>
+
+          <br />
+          <br />
+
+          <div>{{ popContents }}</div>
+        </v-card-text>
+      </v-card>
+    </v-bottom-sheet>
+  </div>
+  <Div>jjammap</Div>
+
+  <naver-map
+    style="width: 100%; height: 800px"
+    :map-options="mapOptions"
+    @onLoad="onLoadMap($event)"
+  >
     <naver-marker
       v-for="data in datas"
       :key="data.id"
       :latitude="data.lat"
       :longitude="data.lng"
       @onLoad="onLoadMarker($event)"
+      @click="onClick(data.id)"
     >
       <div class="marker">
         <img
           :src="require(`@/assets/marker/${data.imageName}.png`)"
-          width="20px"
-          height="25px"
+          width="60px"
+          height="60px"
         />
-      </div> 
-      </naver-marker
+      </div> </naver-marker
     ><naver-polyline :path="datas" />
   </naver-map>
 </template>
-
 <script>
+import { ref } from "vue";
 import { NaverMap } from "vue3-naver-maps";
 import { NaverMarker } from "vue3-naver-maps";
 import { NaverPolyline } from "vue3-naver-maps";
+
+import jamData from "@/assets/jamData.js";
+
 export default {
   name: "App",
   components: {
@@ -30,67 +53,43 @@ export default {
     NaverMarker,
     NaverPolyline,
   },
-
   setup() {
+    let sheet = ref(false);
+    let popContents = ref("");
     const mapOptions = {
       latitude: 37.51347, // 지도 중앙 위도
       longitude: 127.041722, // 지도 중앙 경도
       zoom: 13,
     };
+    const onLoadMarker = (marker) => {
+      marker._icon.anchor = new naver.maps.Point(40, 40);
+      marker.draw();
+      //marker.setAnchor(new naver.maps.Point(0, 0)
+      //); // Change Map Center
+    };
+    const onLoadMap = (map) => {
+      console.log(map);
+      //marker.setAnchor(new naver.maps.Point(0, 0)
+      //); // Change Map Center
+    };
+    const onClick = (id) => {
+      sheet.value = !sheet.value;
+      console.log(sheet);
+      popContents.value = id;
+      //marker.setAnchor(new naver.maps.Point(0, 0)
+      //); // Change Map Center
+    };
+    const datas = jamData;
 
-    const onLoadMarker=(marker)=>{
-  marker._icon.anchor = new naver.maps.Point(10, 10);
-  marker.draw();
-  console.log(marker);
-  console.log(marker._icon.anchor);
-  //marker.setAnchor(new naver.maps.Point(0, 0)
-//); // Change Map Center
-
-    }
-    const onLoadMap=(map)=>{
-  
-  console.log(map);
-  //marker.setAnchor(new naver.maps.Point(0, 0)
-//); // Change Map Center
-
-    }
-
-    const datas = [
-      {
-        id: "3/4종로 곽상언",
-        lat: 37.51347,
-        lng: 127.041722,
-        imageName: "marker-icon",
-      },
-      {
-        id: "3/5영등포을 채현일",
-        lat: 37.52361111,
-        lng: 126.8983417,
-        imageName: "marker-icon",
-      },
-      {
-        id: "3/6양천갑 황희",
-        lat: 37.51423056,
-        lng: 126.8687083,
-
-        imageName: "marker-icon",
-      },
-      {
-        id: "3/11충남",
-        lat: 36.59836111,
-        lng: 126.6629083,
-
-        imageName: "marker-icon",
-      },
-      {
-        id: "3/11천안",
-        lat: 36.804125,
-        lng: 127.1524667,
-
-        imageName: "marker-icon",
-      },
-    ]; // 마커를 그릴 데이터
-    return { mapOptions, datas,onLoadMarker,onLoadMap };
+    return {
+      mapOptions,
+      datas,
+      onLoadMarker,
+      onLoadMap,
+      onClick,
+      popContents,
+      sheet,
+    };
   },
 };
 </script>
