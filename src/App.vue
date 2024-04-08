@@ -79,8 +79,8 @@ export default {
     let sheet = ref(false);
     let popContents = ref({});
     const mapOptions = {
-      latitude: 37.51347, // 지도 중앙 위도
-      longitude: 127.041722, // 지도 중앙 경도
+      latitude: 37.5731806, // 지도 중앙 위도
+      longitude: 127.011421, // 지도 중앙 경도
       zoom: 13,
     };
     const onLoadMarker = (marker) => {
@@ -117,9 +117,9 @@ export default {
 </script>
 
 <style>
-#title{vertical-align: middle;
+#title{font-family: "chab", sans-serif !important;vertical-align: middle;
 font-size:30px}
-#app {font-family: "chab", sans-serif !important;
+#app {font-family: "DungGeunMo";font-size:14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
