@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div>
     <v-bottom-sheet v-model="sheet">
       <v-card height="200">
         <v-card-text>
@@ -13,10 +13,14 @@
       </v-card>
     </v-bottom-sheet>
   </div>
-  <Div>jjammap</Div>
+  <div id="title"><img
+          :src="require(`@/assets/jam-icon.png`)"
+          width="50px"
+          height="30px"
+        />JAMMAP</div>
 
   <naver-map
-    style="width: 100%; height: 800px"
+    style="width: 100%; height: 500px"
     :map-options="mapOptions"
     @onLoad="onLoadMap($event)"
   >
@@ -35,14 +39,22 @@
           height="60px"
         />
       </div> </naver-marker
-    ><naver-polyline :path="datas" />
-  </naver-map>
+    >
+    <!-- <naver-polyline :path="datas" /> -->
+  </naver-map><div>Copyright © 2024 by <a href="https://twitter.com/theminjoo_bot" target="_blank">민주당홍보봇</a>. All Rights Reserved.</div>
+  <div style="position:fixed;bottom:0px;right:0px;z-index:99999999" ><img
+          :src="require(`@/assets/corner-icon.png`)"
+          width="120px"
+          height="110px"
+        /></div>
+
+        
+  
 </template>
 <script>
 import { ref } from "vue";
 import { NaverMap } from "vue3-naver-maps";
 import { NaverMarker } from "vue3-naver-maps";
-import { NaverPolyline } from "vue3-naver-maps";
 
 import jamData from "@/assets/jamData.js";
 
@@ -51,7 +63,6 @@ export default {
   components: {
     NaverMap,
     NaverMarker,
-    NaverPolyline,
   },
   setup() {
     let sheet = ref(false);
@@ -95,12 +106,25 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+#title{font-size:30px}
+#app {font-family: "chab", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+@font-face {
+  font-family:'chab';
+  src: url('assets/fonts/chab.ttf') format('truetype');
+   font-weight: normal;
+  font-style: normal;
+}@font-face {
+  font-family: "DungGeunMo";
+  src: url("assets/fonts/DungGeunMo.woff2") format("woff2"),
+    url("assets/fonts/DungGeunMo.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 </style>
