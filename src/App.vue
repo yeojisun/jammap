@@ -2,21 +2,32 @@
   <div>
     <v-bottom-sheet v-model="sheet">
       <v-card height="200">
-        <v-card-text>
+        <v-card>
           <v-btn variant="text" @click="sheet = !sheet"> X </v-btn>
-
-          <br />
-          <br />
-
-          <div>{{ popContents }}</div>
-        </v-card-text>
+          <v-list
+    ><v-list-item
+        v-for="item in popContents.popContents"
+        :key="item.id"
+      >
+        <!-- <v-list-item-avatar>
+          <v-img :src="item.avatar"></v-img>
+        </v-list-item-avatar> -->
+        <v-list-item-content>
+          <v-list-item-title v-text="item.location"></v-list-item-title>
+          <v-list-item-subtitle v-text="item.cont"></v-list-item-subtitle>
+          <v-list-item-subtitle v-text="item.youtubeLink"></v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+        </v-card>
+        
       </v-card>
     </v-bottom-sheet>
   </div>
   <div id="title"><img
           :src="require(`@/assets/jam-icon.png`)"
-          width="50px"
-          height="30px"
+          width="25px"
+          height="30px" id="jamicon"
         />JAMMAP</div>
 
   <naver-map
@@ -30,7 +41,7 @@
       :latitude="data.lat"
       :longitude="data.lng"
       @onLoad="onLoadMarker($event)"
-      @click="onClick(data.id)"
+      @click="onClick(data)"
     >
       <div class="marker">
         <img
@@ -66,7 +77,7 @@ export default {
   },
   setup() {
     let sheet = ref(false);
-    let popContents = ref("");
+    let popContents = ref({});
     const mapOptions = {
       latitude: 37.51347, // 지도 중앙 위도
       longitude: 127.041722, // 지도 중앙 경도
@@ -83,10 +94,10 @@ export default {
       //marker.setAnchor(new naver.maps.Point(0, 0)
       //); // Change Map Center
     };
-    const onClick = (id) => {
+    const onClick = (item) => {
       sheet.value = !sheet.value;
       console.log(sheet);
-      popContents.value = id;
+      popContents.value = item;
       //marker.setAnchor(new naver.maps.Point(0, 0)
       //); // Change Map Center
     };
@@ -106,7 +117,8 @@ export default {
 </script>
 
 <style>
-#title{font-size:30px}
+#title{vertical-align: middle;
+font-size:30px}
 #app {font-family: "chab", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
