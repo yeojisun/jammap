@@ -72,6 +72,8 @@
     <!-- <naver-polyline :path="datas" /> -->
   </naver-map>
   <div id="bottom">
+    * 첫 지도 화면은 이재명 대표님의 첫 일정(서울종로 곽상언 개소식)을 기준으로
+    보여지고 있습니다.<br />
     Copyright © 2024 by
     <a href="https://twitter.com/theminjoo_bot" target="_blank">민주당홍보봇</a
     >. All Rights Reserved.
@@ -212,6 +214,7 @@ html {
 
 #bottom {
   padding-top: 10px;
+  -webkit-text-stroke: 0.2px #fff;
 }
 #app {
   font-family: "DNFBitBitTTF", sans-serif !important;
