@@ -9,9 +9,11 @@
         v-for="item in popContents.popContents"
         :key="item.id"
       >
-        <!-- <v-list-item-avatar>
-          <v-img :src="item.avatar"></v-img>
-        </v-list-item-avatar> -->
+        <v-list-item-avatar>
+          <v-img :src="getThum(item.youtubeLink)" 
+          width="80px"
+          height="60px"></v-img>
+        </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title v-text="item.location"></v-list-item-title>
           <v-list-item-subtitle v-text="item.cont"></v-list-item-subtitle>
@@ -102,6 +104,19 @@ export default {
       //); // Change Map Center
     };
     const datas = jamData;
+const getThum=(youtubeUrl)=> {
+   let thumUrl = "";
+         let finUrl = '';
+      if (youtubeUrl !== "") {
+         let replaceUrl = youtubeUrl;
+         replaceUrl = replaceUrl.replace("https://youtu.be/", '');
+         replaceUrl = replaceUrl.replace("https://www.youtube.com/embed/", '');
+         replaceUrl = replaceUrl.replace("https://www.youtube.com/watch?v=", '');
+         finUrl = replaceUrl.split('&')[0];
+      }
+      thumUrl = "https://img.youtube.com/vi/"+finUrl+"/mqdefault.jpg";
+      return thumUrl;
+   };
 
     return {
       mapOptions,
@@ -111,6 +126,7 @@ export default {
       onClick,
       popContents,
       sheet,
+      getThum,
     };
   },
 };
