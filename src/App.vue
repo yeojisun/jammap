@@ -46,10 +46,11 @@
       id="jamicon"
     />
   </div>
-  <div class="tape tape-1"></div>
   <div class="tape tape-2"></div>
+  <!-- <div class="tape tape-1"></div> -->
+
   <naver-map
-    style="width: 100%; height: 500px"
+    style="width: 100%; height: 50vh"
     :map-options="mapOptions"
     @onLoad="onLoadMap($event)"
   >
@@ -179,8 +180,8 @@ html {
 
 .tape {
   position: absolute;
-  height: 180px;
-  width: 50px;
+  height: 80px;
+  width: 30px;
   opacity: 0.5;
   background: repeating-linear-gradient(
     45deg,
@@ -195,20 +196,22 @@ html {
   z-index: 99999999;
 }
 .tape-1 {
-  bottom: 200px;
-  right: 0px;
+  bottom: 12.5%;
+  left: 50%;
 }
 .tape-2 {
-  top: 50px;
-  bottom: 0px;
+  top: 80px;
+  left: 50%;
 }
 #jamicon {
   transform: rotate(30deg);
 }
 
 #title {
+  margin-top: 20px;
+  margin-bottom: 20px;
   vertical-align: middle;
-  font-size: 50px;
+  font-size: 40px;
   -webkit-text-stroke: 2px #fff;
 }
 
@@ -222,7 +225,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 @font-face {
