@@ -3255,6 +3255,20 @@ export default [
   },
   {
     id: "marker238",
+    lat: 37.7091295,
+    lng: 128.83328595945628,
+    imageName: "marker-icon02",
+    popContents: [
+      {
+        youtubeLink:
+          "https://www.youtube.com/live/V1OuXVGaZXM?si=E6N65mjJKcirM8zb",
+        location: "강원강릉 김중남, 경남진주갑 갈상돈(4/8)",
+        cont: "원격지원",
+      },
+    ],
+  },
+  {
+    id: "marker239",
     lat: 35.205153,
     lng: 128.1297905,
     imageName: "marker-icon02",
