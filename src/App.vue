@@ -4,8 +4,8 @@
       <v-card height="200" class="card">
         <v-card>
           <!-- <v-btn variant="text" @click="sheet = !sheet"> X </v-btn> -->
-          <v-list
-             class="card"><v-list-item
+          <v-list class="card"
+            ><v-list-item
               v-for="item in popContents.popContents"
               :key="item.id"
             >
@@ -46,8 +46,8 @@
       id="jamicon"
     />
   </div>
-  <div class="tape tape-2" ></div>
-  <div class="tape tape-1" :style="sheet ? `display:none` : ``"></div>
+  <div class="tape tape-2"></div>
+  <div class="tape tape-1"></div>
 
   <naver-map
     style="width: 100%; height: 50vh"
@@ -209,9 +209,9 @@ html {
   top: 60px;
   left: 4vh;
 }
-.card{background-color: 
-    #def0ff;
-    color:#094072;
+.card {
+  background-color: #def0ff;
+  color: #094072;
 }
 #jamicon {
   transform: rotate(30deg);
@@ -233,7 +233,6 @@ html {
 #app {
   text-align: center;
 }
-
 
 @font-face {
   font-family: "chab";
