@@ -1,8 +1,8 @@
 export default [
   {
     id: "marker1",
-    lat: 37.4845474,
-    lng: 126.804882,
+    lat: 37.57253590000001,
+    lng: 127.0153043,
     imageName: "marker-icon01",
     popContents: [
       {
@@ -2182,7 +2182,7 @@ export default [
       {
         youtubeLink:
           "https://www.youtube.com/live/Di7JWPM6rlk?si=cHHvrPqQcrjzeTS_",
-        location: "남성역-확인필요(4/2)",
+        location: "남성역(4/2)",
         cont: "류삼영 지지유세",
       },
     ],
