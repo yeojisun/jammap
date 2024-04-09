@@ -100,6 +100,7 @@ export default {
     NaverMap,
     NaverMarker,
   },
+
   setup() {
     let sheet = ref(false);
     let popContents = ref({});
