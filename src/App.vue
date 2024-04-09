@@ -184,7 +184,7 @@ html {
 
 .tape {
   position: absolute;
-  height: 80px;
+  height: 60px;
   width: 30px;
   opacity: 0.5;
   background: repeating-linear-gradient(
@@ -196,15 +196,16 @@ html {
     #0b68b3 10px,
     transparent 15px
   );
-  transform: rotate(45deg);
   z-index: 99999999;
 }
 .tape-1 {
-  bottom: 25vh;
+  transform: rotate(135deg);
+  top: 60px;
   right: 4vh;
 }
 .tape-2 {
-  top: 10vh;
+  transform: rotate(45deg);
+  top: 60px;
   left: 4vh;
 }
 .card{background-color: 
