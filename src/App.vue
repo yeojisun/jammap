@@ -1,11 +1,11 @@
 <template>
   <div>
     <v-bottom-sheet v-model="sheet">
-      <v-card height="200">
+      <v-card height="200" class="card">
         <v-card>
           <!-- <v-btn variant="text" @click="sheet = !sheet"> X </v-btn> -->
           <v-list
-            ><v-list-item
+             class="card"><v-list-item
               v-for="item in popContents.popContents"
               :key="item.id"
             >
@@ -46,8 +46,8 @@
       id="jamicon"
     />
   </div>
-  <div class="tape tape-2"></div>
-  <!-- <div class="tape tape-1"></div> -->
+  <div class="tape tape-2" ></div>
+  <div class="tape tape-1" :style="sheet ? `display:none` : ``"></div>
 
   <naver-map
     style="width: 100%; height: 50vh"
@@ -65,16 +65,16 @@
       <div class="marker">
         <img
           :src="require(`@/assets/marker/${data.imageName}.png`)"
-          width="80px"
-          height="80px"
+          width="60px"
+          height="60px"
         />
       </div>
     </naver-marker>
     <!-- <naver-polyline :path="datas" /> -->
   </naver-map>
   <div id="bottom">
-    * 첫 지도 화면은 이재명 대표님의 첫 일정(서울종로 곽상언 개소식)을 기준으로
-    보여지고 있습니다.<br />
+    📌첫 지도 화면은 이재명 대표님의 첫 일정(서울 종로 곽상언 개소식) 기준<br />
+    📌지도 속 대표님을 클릭하면 유세 내용 및 유투브 영상을 확인할 수 있습니다<br />
     Copyright © 2024 by
     <a href="https://twitter.com/theminjoo_bot" target="_blank">민주당홍보봇</a
     >. All Rights Reserved.
@@ -158,7 +158,11 @@ export default {
 
 <style>
 html {
-  --background-color: #fdfaf4;
+  font-family: "DNFBitBitTTF", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #094072;
+  --background-color: #fffaf0;
   --line-color: #bce1ff;
   --spacing: 40px;
   --line-thickness: 6px;
@@ -196,12 +200,16 @@ html {
   z-index: 99999999;
 }
 .tape-1 {
-  bottom: 12.5%;
-  left: 50%;
+  bottom: 25vh;
+  right: 4vh;
 }
 .tape-2 {
-  top: 80px;
-  left: 50%;
+  top: 10vh;
+  left: 4vh;
+}
+.card{background-color: 
+    #bce1ff;
+    color:#094072;
 }
 #jamicon {
   transform: rotate(30deg);
@@ -216,16 +224,14 @@ html {
 }
 
 #bottom {
+  font-size: 13px;
   padding-top: 10px;
   -webkit-text-stroke: 0.2px #fff;
 }
 #app {
-  font-family: "DNFBitBitTTF", sans-serif !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
+
 
 @font-face {
   font-family: "chab";
