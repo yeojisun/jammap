@@ -208,7 +208,7 @@ html {
   left: 4vh;
 }
 .card{background-color: 
-    #bce1ff;
+    #def0ff;
     color:#094072;
 }
 #jamicon {
