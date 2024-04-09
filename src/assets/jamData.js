@@ -2973,7 +2973,20 @@ export default [
       },
     ],
   },
-  // {id: 'marker216', lat: 미정, lng: 미정, imageName: 'marker-icon01', popContents:[{youtubeLink:'', location:'계양구 일대(4/9)', cont:'계양구을 출근 인사'}]},
+  {
+    id: "marker216",
+    lat: 37.571594,
+    lng: 126.7363805,
+    imageName: "marker-icon01",
+    popContents: [
+      {
+        youtubeLink:
+          "https://www.youtube.com/live/g0NF0kcRC28?si=Ovd344o8_kWT0mdk",
+        location: "계양구 일대(4/9)",
+        cont: "계양구을 출근 인사",
+      },
+    ],
+  },
   {
     id: "marker217",
     lat: 37.4970107,
@@ -2981,10 +2994,17 @@ export default [
     imageName: "marker-icon01",
     popContents: [
       {
-        youtubeLink: "",
+        youtubeLink:
+          "https://www.youtube.com/live/kiPzI4t41mE?si=as-e_cL9--YgPIys",
         location: "서울중앙지방법원 서관 (서초중앙로 157)(4/9)",
         cont: "기자회견",
       },
+      // {
+      //   youtubeLink:
+      //     "https://www.youtube.com/live/N3VHvxoEVsk?si=vb_xecFp_Zsk_iKP",
+      //   location: "휴정중 차 안에서(4/9)",
+      //   cont: "틈새 라방",
+      // },
     ],
   },
   {
@@ -2994,13 +3014,27 @@ export default [
     imageName: "marker-icon01",
     popContents: [
       {
-        youtubeLink: "",
+        youtubeLink:
+          "https://www.youtube.com/live/aK7fhRw_S70?si=uHu1CnBvpz5pVr8p",
         location: "용산역 광장 (한강대로21나길 17)(4/9)",
         cont: "정권심판,국민승리 총력유세",
       },
     ],
   },
-  // {id: 'marker219', lat: 미정, lng: 미정, imageName: 'marker-icon01', popContents:[{youtubeLink:'', location:'계양구 일대(4/9)', cont:'계양을 집중유세 및 거리인사'}]},
+  {
+    id: "marker219",
+    lat: 37.5394439,
+    lng: 126.7362366,
+    imageName: "marker-icon01",
+    popContents: [
+      {
+        youtubeLink:
+          "https://www.youtube.com/live/XiICDhlL0XQ?si=r25VFreDU3yYQhJP",
+        location: "계양구 일대(4/9)",
+        cont: "계양을 집중유세 및 거리인사",
+      },
+    ],
+  },
   {
     id: "marker220",
     lat: 37.452589,
